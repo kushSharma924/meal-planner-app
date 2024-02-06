@@ -48,7 +48,7 @@ Features:
 <!-- CONTACT -->
 ## Contact
 
-Kush Sharma - kushsharma924@gmail.com.com
+Kush Sharma - kushsharma924@gmail.com
 
 Project Link: [https://github.com/kushSharma924/meal-planner-app/](https://github.com/kushSharma924/meal-planner-app/)
 
