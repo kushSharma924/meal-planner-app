@@ -23,7 +23,7 @@ Features:
 ## Built With
 
 
-* [![React][React.js]][React-url]
+[![React][React.js]][React-url]
 
 
 <!-- GETTING STARTED -->
