@@ -12,7 +12,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This app was created to help college students manage independent living, specifically targetting the problem of choosing what to eat. 
+This app was created to help college students manage independent living, specifically targeting the problem of choosing what to eat. 
 
 Features:
 * Users can choose dietary preferences, including allergies and foods to avoid.
