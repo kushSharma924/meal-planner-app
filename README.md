@@ -19,6 +19,8 @@ Features:
 * Users can choose to generate breakfast, lunch, or dinner recipes.
 * Upon generation, users are given 3 recipes and can choose to make one of the 3 or refresh the results.
 
+This web application was built with React and deployed with AWS Amplify.
+
 
 ## Built With
 
