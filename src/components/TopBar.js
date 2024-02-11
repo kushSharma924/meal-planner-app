@@ -1,4 +1,4 @@
-import logo from './logo.jpg';
+import logo from './images/logo.jpg';
 
 const TopBar = () => {
     const title = 'What Do You Want To Eat?';

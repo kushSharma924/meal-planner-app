@@ -54,3 +54,20 @@ bbody {
     font-size: 18px;
     color: #003459;
 }
+
+.drop-down label{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    color: #003459;
+    margin-bottom: 10px;
+}
+
+.drop-down select {
+    width: 15%;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}

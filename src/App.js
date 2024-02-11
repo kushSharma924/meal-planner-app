@@ -1,5 +1,5 @@
-import TopBar from './TopBar.js';
-import Home from './Home.js';
+import TopBar from './components/TopBar.js';
+import Home from './components/Home.js';
 import './App.css';
 
 function App() {
