@@ -51,7 +51,7 @@ bbody {
     margin-top: 40px;
     margin-bottom: 40px;
     font-family: Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 30px;
     color: #003459;
 }
 
@@ -60,9 +60,10 @@ bbody {
     flex-direction: column;
     text-align: left;
     font-family: Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     color: #003459;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .drop-down select {
@@ -70,4 +71,15 @@ bbody {
     font-family: Helvetica, sans-serif;
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+.home button {
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #003459;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
 }
