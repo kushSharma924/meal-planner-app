@@ -41,3 +41,54 @@ bbody {
 .top-bar img {
     margin-left: 10px;
 }
+
+.home {
+    padding-top: 125px;
+}
+
+.search-bar input {
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    color: #003459;
+}
+
+.drop-down label{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    color: #003459;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.drop-down select {
+    width: 15%;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home br {
+    display: block;
+    content: "";
+    margin-top: 7px;
+}
+
+.home button {
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #003459;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}

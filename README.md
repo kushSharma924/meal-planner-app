@@ -19,11 +19,13 @@ Features:
 * Users can choose to generate breakfast, lunch, or dinner recipes.
 * Upon generation, users are given 3 recipes and can choose to make one of the 3 or refresh the results.
 
+This web application was built with React and deployed with AWS Amplify.
+
 
 ## Built With
 
 
-* [![React][React.js]][React-url]
+[![React][React.js]][React-url]
 
 
 <!-- GETTING STARTED -->
@@ -31,9 +33,11 @@ Features:
 
 1. Clone the repo
 - ```git clone https://github.com/kushSharma924/meal-planner-app.git```
-2. Install node_modules
+2. Navigate to the directory
+- ```cd [folder_name]/meal-planner-app```
+3. Install node_modules
 - ```npm install```
-3. Run project in localhost
+4. Run project in localhost
 - ```npm run start```
 
 <!-- ROADMAP -->
