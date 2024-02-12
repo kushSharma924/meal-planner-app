@@ -13,7 +13,7 @@ const SearchBar = () => {
         <div className="search-bar">
             <input
                 type="text"
-                placeholder="What's on your plate today? (ex: chicken and rice, buttered toast, etc)"
+                placeholder="Enter some keywords to describe your meal"
                 value={query}
                 onChange={handleInputChange}
             />

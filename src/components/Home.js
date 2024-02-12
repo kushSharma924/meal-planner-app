@@ -70,7 +70,6 @@ const Home = () => {
                     { label: '20-40 minutes', value: '20-40' },
                     { label: '40-60 minutes', value: '40-60' },
                     { label: 'Over 60 minutes', value: '60+' },
-
                   ]}
                   value={food}
             />
