@@ -40,6 +40,8 @@ This web application was built with React and deployed with AWS Amplify.
 4. Run project in localhost
 - ```npm run start```
 
+Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link](https://master.d3auyfi3h934ma.amplifyapp.com/)
+
 <!-- ROADMAP -->
 ## Roadmap
 
