@@ -1,11 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import DropDown from './DropDown';
 
 const Home = () => {
 
-    const [food, setFood] = React.useState('fruit');
+    const [mealType, setMealType] = React.useState('breakfast');
+    const [diet, setDiet] = React.useState('none');
+    const [ingredients, setIngredients] =  React.useState('0-5');
+    const [cuisine, setCuisine] = React.useState('none');
+    const [time, setTime] = React.useState('10-20');
 
+    useEffect(() => {
+        console.log(
+          'meal: ' + mealType + '\n' + 
+          'diet: ' + diet + '\n' + 
+          'ingredients: ' + ingredients + '\n' + 
+          'cuisine: ' + cuisine + '\n' + 
+          'time: ' + time
+        );
+    }, [time, mealType, diet, cuisine, ingredients])
+
+    const handleCuisineChanges = (c) => {
+        setCuisine(c);
+    }
+
+    const handleTimeChanges = (t) => {
+        setTime(t);
+    }
+
+    const handleIngredientsChanges = (ing) => {
+        setIngredients(ing);
+    }
+
+    const handleMealTypeChanges = (meal) => {
+        setMealType(meal);
+    };
+
+    const handleDietChanges = (diet) => {
+        setDiet(diet);
+    }
 
     return (
         <div className="home">
@@ -18,7 +51,8 @@ const Home = () => {
                     { label: 'Snack', value: 'snack' },
                     { label: 'Dinner', value: 'dinner' },
                   ]}
-                  value={food}
+                  value={mealType}
+                  onChange = {handleMealTypeChanges}
             />
 
             <DropDown 
@@ -29,7 +63,8 @@ const Home = () => {
                     { label: 'Vegetarian', value: 'vegetarian' },
                     { label: 'Vegan', value: 'vegan' },
                   ]}
-                  value={food}
+                  value={diet}
+                  onChange = {handleDietChanges}
             />
 
             <DropDown 
@@ -40,7 +75,8 @@ const Home = () => {
                     { label: '10-20 ingredients', value: '10-20' },
                     { label: '20+ ingredients', value: '20+' },
                   ]}
-                  value={food}
+                  value={ingredients}
+                  onChange = {handleIngredientsChanges}
             />
 
             <DropDown 
@@ -53,7 +89,8 @@ const Home = () => {
                     { label: 'Middle Eastern', value: 'middle-eastern' },
                     { label: 'Mexican', value: 'mexican' },
                   ]}
-                  value={food}
+                  value={cuisine}
+                  onChange = {handleCuisineChanges}
             />
 
             <DropDown 
@@ -64,7 +101,8 @@ const Home = () => {
                     { label: '40-60 minutes', value: '40-60' },
                     { label: 'Over 60 minutes', value: '60+' },
                   ]}
-                  value={food}
+                  value={time}
+                  onChange = {handleTimeChanges}
             />
 
             <button>Generate Recipes</button>
