@@ -4,15 +4,8 @@ import DropDown from './DropDown';
 
 const Home = () => {
 
-    const [query, setQuery] = useState('');
-
-    const handleInputChange = (event) => {
-        const value = event.target.value;
-        setQuery(value);
-    };
-
     const [food, setFood] = React.useState('fruit');
-    const [drink, setDrink] = React.useState('water');
+
 
     return (
         <div className="home">
@@ -57,7 +50,7 @@ const Home = () => {
                     { label: 'American', value: 'american' },
                     { label: 'Asian', value: 'asian' },
                     { label: 'Indian', value: 'indian' },
-                    { label: 'Middle Eastern', value: 'middle eastern' },
+                    { label: 'Middle Eastern', value: 'middle-eastern' },
                     { label: 'Mexican', value: 'mexican' },
                   ]}
                   value={food}
