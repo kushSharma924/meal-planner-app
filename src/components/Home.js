@@ -4,6 +4,29 @@ import DropDown from './DropDown';
 
 const Home = () => {
 
+    let url = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=b3790de0&app_key=01c4c2311660639bc36c94acfc136141';
+
+    const getRandomRecipes = async () => {
+        const response = await fetch(url);
+        const body = await response.json();
+        console.log(body);
+    }
+
+    const handleClick = () => {
+        url += '&ingr=' + ingredients; // 10-20
+        if (diet != 'none') {
+            url += '&health=' + diet; // vegetarian
+        }
+        if (cuisine != 'none') {
+            url += '&cuisineType=' + cuisine; // Asian
+        }
+        url += '&mealType=' + mealType; // Dinner
+        url += '&time=' + time; // 10-20
+        url += '&random=true';
+        getRandomRecipes();
+
+    }
+
     const [mealType, setMealType] = React.useState('breakfast');
     const [diet, setDiet] = React.useState('none');
     const [ingredients, setIngredients] =  React.useState('0-5');
@@ -46,10 +69,9 @@ const Home = () => {
             <DropDown 
                 label = "What meal are you looking to eat?"
                 options={[
-                    { label: 'Breakfast', value: 'breakfast' },
-                    { label: 'Lunch', value: 'lunch' },
-                    { label: 'Snack', value: 'snack' },
-                    { label: 'Dinner', value: 'dinner' },
+                    { label: 'Breakfast', value: 'Breakfast' },
+                    { label: 'Lunch', value: 'Lunch' },
+                    { label: 'Dinner', value: 'Dinner' },
                   ]}
                   value={mealType}
                   onChange = {handleMealTypeChanges}
@@ -83,11 +105,9 @@ const Home = () => {
                 label = "What cuisine would you prefer?"
                 options={[
                     { label: 'No Preference', value: 'none' },
-                    { label: 'American', value: 'american' },
-                    { label: 'Asian', value: 'asian' },
-                    { label: 'Indian', value: 'indian' },
-                    { label: 'Middle Eastern', value: 'middle-eastern' },
-                    { label: 'Mexican', value: 'mexican' },
+                    { label: 'American', value: 'American' },
+                    { label: 'Asian', value: 'Asian' },
+                    { label: 'Mexican', value: 'Mexican' },
                   ]}
                   value={cuisine}
                   onChange = {handleCuisineChanges}
@@ -105,7 +125,7 @@ const Home = () => {
                   onChange = {handleTimeChanges}
             />
 
-            <button>Generate Recipes</button>
+            <button onClick = {handleClick}>Generate Recipes</button>
         </div>
     );
 }
