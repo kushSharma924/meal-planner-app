@@ -5,7 +5,6 @@ const DropDown = ({ label, value, options }) => {
         <div className="drop-down">
             <label>
                 {label}
-                <br /><br />
                 <select value={value}>
                 {options.map((option) => (
                     <option value={option.value}>{option.label}</option>

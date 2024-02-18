@@ -8,7 +8,7 @@ colors:
     - #007EA7 (cerulean)
 */
 
-bbody {
+body {
     background-color: #FFFFFF;
     margin: 0; /* Reset default margin */
 }
@@ -51,11 +51,11 @@ bbody {
     margin-top: 40px;
     margin-bottom: 40px;
     font-family: Helvetica, sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     color: #003459;
 }
 
-.drop-down label{
+.drop-down label {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -70,16 +70,11 @@ bbody {
     width: 15%;
     font-family: Helvetica, sans-serif;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 15px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.home br {
-    display: block;
-    content: "";
-    margin-top: 7px;
 }
 
 .home button {
@@ -89,6 +84,7 @@ bbody {
     font-weight: bold;
     background-color: #003459;
     border: none;
-    padding: 10px;
+    padding: 15px;
+    margin-top: 20px;
     border-radius: 5px;
 }
