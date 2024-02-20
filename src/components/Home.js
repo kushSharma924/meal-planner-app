@@ -14,10 +14,10 @@ const Home = () => {
 
     const handleClick = () => {
         url += '&ingr=' + ingredients; // 10-20
-        if (diet != 'none') {
+        if (diet !== 'none') {
             url += '&health=' + diet; // vegetarian
         }
-        if (cuisine != 'none') {
+        if (cuisine !== 'none') {
             url += '&cuisineType=' + cuisine; // Asian
         }
         url += '&mealType=' + mealType; // Dinner
@@ -27,11 +27,11 @@ const Home = () => {
 
     }
 
-    const [mealType, setMealType] = React.useState('breakfast');
-    const [diet, setDiet] = React.useState('none');
-    const [ingredients, setIngredients] =  React.useState('0-5');
-    const [cuisine, setCuisine] = React.useState('none');
-    const [time, setTime] = React.useState('10-20');
+    const [mealType, setMealType] = useState('breakfast');
+    const [diet, setDiet] = useState('none');
+    const [ingredients, setIngredients] =  useState('0-5');
+    const [cuisine, setCuisine] = useState('none');
+    const [time, setTime] = useState('10-20');
 
     useEffect(() => {
         console.log(
@@ -76,6 +76,7 @@ const Home = () => {
                   value={mealType}
                   onChange = {handleMealTypeChanges}
             />
+            <br />
 
             <DropDown 
                 label = "Do you have any dietary restrictions?"
@@ -88,6 +89,8 @@ const Home = () => {
                   value={diet}
                   onChange = {handleDietChanges}
             />
+            <br />
+
 
             <DropDown 
                 label = "How many ingredients are you willing to work with?"
@@ -100,6 +103,8 @@ const Home = () => {
                   value={ingredients}
                   onChange = {handleIngredientsChanges}
             />
+            <br />
+
 
             <DropDown 
                 label = "What cuisine would you prefer?"
@@ -112,6 +117,7 @@ const Home = () => {
                   value={cuisine}
                   onChange = {handleCuisineChanges}
             />
+            <br />
 
             <DropDown 
                 label = "How much time are you willing to spend?"
@@ -124,7 +130,6 @@ const Home = () => {
                   value={time}
                   onChange = {handleTimeChanges}
             />
-
             <button onClick = {handleClick}>Generate Recipes</button>
         </div>
     );
