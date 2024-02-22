@@ -4,7 +4,12 @@ import DropDown from './DropDown';
 
 const Home = () => {
 
-    let url = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=b3790de0&app_key=01c4c2311660639bc36c94acfc136141';
+    const ID = process.env.REACT_APP_ID;
+    const KEY = process.env.REACT_APP_KEY;
+
+    let url = 'https://api.edamam.com/api/recipes/v2?type=public';
+    url += '&app_id=' + ID;
+    url += '&app_key=' + KEY;
 
     const getRandomRecipes = async () => {
         const response = await fetch(url);
