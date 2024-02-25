@@ -29,7 +29,6 @@ const Home = () => {
         url += '&time=' + time; // 10-20
         url += '&random=true';
         getRandomRecipes();
-
     }
 
     const [mealType, setMealType] = useState('breakfast');
@@ -37,6 +36,12 @@ const Home = () => {
     const [ingredients, setIngredients] =  useState('0-5');
     const [cuisine, setCuisine] = useState('none');
     const [time, setTime] = useState('10-20');
+    const [query, setQuery] = useState('');
+
+    const handleQueryChanges = (q) => {
+        setQuery(q);
+        console.log(q);
+    }
 
     useEffect(() => {
         console.log(
@@ -70,7 +75,9 @@ const Home = () => {
 
     return (
         <div className="home">
-            <SearchBar />
+            <SearchBar 
+                onChange = {handleQueryChanges}
+            />
             <DropDown 
                 label = "What meal are you looking to eat?"
                 options={[
