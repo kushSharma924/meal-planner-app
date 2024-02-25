@@ -1,18 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import DropDown from './DropDown';
 
 const Home = () => {
 
-    const [query, setQuery] = useState('');
+    const ID = process.env.REACT_APP_ID;
+    const KEY = process.env.REACT_APP_KEY;
 
-    const handleInputChange = (event) => {
-        const value = event.target.value;
-        setQuery(value);
+    let url = 'https://api.edamam.com/api/recipes/v2?type=public';
+    url += '&app_id=' + ID;
+    url += '&app_key=' + KEY;
+
+    const getRandomRecipes = async () => {
+        const response = await fetch(url);
+        const body = await response.json();
+        console.log(body);
+    }
+
+    const handleClick = () => {
+        url += '&ingr=' + ingredients; // 10-20
+        if (diet !== 'none') {
+            url += '&health=' + diet; // vegetarian
+        }
+        if (cuisine !== 'none') {
+            url += '&cuisineType=' + cuisine; // Asian
+        }
+        url += '&mealType=' + mealType; // Dinner
+        url += '&time=' + time; // 10-20
+        url += '&random=true';
+        getRandomRecipes();
+
+    }
+
+    const [mealType, setMealType] = useState('breakfast');
+    const [diet, setDiet] = useState('none');
+    const [ingredients, setIngredients] =  useState('0-5');
+    const [cuisine, setCuisine] = useState('none');
+    const [time, setTime] = useState('10-20');
+
+    useEffect(() => {
+        console.log(
+          'meal: ' + mealType + '\n' + 
+          'diet: ' + diet + '\n' + 
+          'ingredients: ' + ingredients + '\n' + 
+          'cuisine: ' + cuisine + '\n' + 
+          'time: ' + time
+        );
+    }, [time, mealType, diet, cuisine, ingredients])
+
+    const handleCuisineChanges = (c) => {
+        setCuisine(c);
+    }
+
+    const handleTimeChanges = (t) => {
+        setTime(t);
+    }
+
+    const handleIngredientsChanges = (ing) => {
+        setIngredients(ing);
+    }
+
+    const handleMealTypeChanges = (meal) => {
+        setMealType(meal);
     };
 
-    const [food, setFood] = React.useState('fruit');
-    const [drink, setDrink] = React.useState('water');
+    const handleDietChanges = (diet) => {
+        setDiet(diet);
+    }
 
     return (
         <div className="home">
@@ -20,13 +74,14 @@ const Home = () => {
             <DropDown 
                 label = "What meal are you looking to eat?"
                 options={[
-                    { label: 'Breakfast', value: 'breakfast' },
-                    { label: 'Lunch', value: 'lunch' },
-                    { label: 'Snack', value: 'snack' },
-                    { label: 'Dinner', value: 'dinner' },
+                    { label: 'Breakfast', value: 'Breakfast' },
+                    { label: 'Lunch', value: 'Lunch' },
+                    { label: 'Dinner', value: 'Dinner' },
                   ]}
-                  value={food}
+                  value={mealType}
+                  onChange = {handleMealTypeChanges}
             />
+            <br />
 
             <DropDown 
                 label = "Do you have any dietary restrictions?"
@@ -36,8 +91,11 @@ const Home = () => {
                     { label: 'Vegetarian', value: 'vegetarian' },
                     { label: 'Vegan', value: 'vegan' },
                   ]}
-                  value={food}
+                  value={diet}
+                  onChange = {handleDietChanges}
             />
+            <br />
+
 
             <DropDown 
                 label = "How many ingredients are you willing to work with?"
@@ -47,21 +105,24 @@ const Home = () => {
                     { label: '10-20 ingredients', value: '10-20' },
                     { label: '20+ ingredients', value: '20+' },
                   ]}
-                  value={food}
+                  value={ingredients}
+                  onChange = {handleIngredientsChanges}
             />
+            <br />
+
 
             <DropDown 
                 label = "What cuisine would you prefer?"
                 options={[
                     { label: 'No Preference', value: 'none' },
-                    { label: 'American', value: 'american' },
-                    { label: 'Asian', value: 'asian' },
-                    { label: 'Indian', value: 'indian' },
-                    { label: 'Middle Eastern', value: 'middle eastern' },
-                    { label: 'Mexican', value: 'mexican' },
+                    { label: 'American', value: 'American' },
+                    { label: 'Asian', value: 'Asian' },
+                    { label: 'Mexican', value: 'Mexican' },
                   ]}
-                  value={food}
+                  value={cuisine}
+                  onChange = {handleCuisineChanges}
             />
+            <br />
 
             <DropDown 
                 label = "How much time are you willing to spend?"
@@ -71,10 +132,10 @@ const Home = () => {
                     { label: '40-60 minutes', value: '40-60' },
                     { label: 'Over 60 minutes', value: '60+' },
                   ]}
-                  value={food}
+                  value={time}
+                  onChange = {handleTimeChanges}
             />
-
-            <button>Generate Recipes</button>
+            <button onClick = {handleClick}>Generate Recipes</button>
         </div>
     );
 }

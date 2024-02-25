@@ -37,8 +37,18 @@ This web application was built with React and deployed with AWS Amplify.
 - ```cd [folder_name]/meal-planner-app```
 3. Install node_modules
 - ```npm install```
-4. Run project in localhost
+4. Install dotenv (a Node.js package to load environment variables)
+- ```npm i --save-dev dotenv```
+5. Create a .env file in the root package directly to store the environment variables
+- ```touch .env```
+6. Navigate to the .env file on your IDE and add the API Key
+- ```\\ at .env```  
+```REACT_APP_ID = [Insert App ID Here]```  
+```REACT_APP_KEY = [Insert App Key Here]```
+7. Run project in localhost
 - ```npm run start```
+
+Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link](https://master.d3auyfi3h934ma.amplifyapp.com/)
 
 <!-- ROADMAP -->
 ## Roadmap

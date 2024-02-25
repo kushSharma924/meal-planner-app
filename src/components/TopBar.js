@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './images/logo.jpg';
 import React from 'react';
 
