@@ -18,15 +18,18 @@ const Home = () => {
     }
 
     const handleClick = () => {
-        url += '&ingr=' + ingredients; // 10-20
+        url += '&ingr=' + ingredients;
+        if (query !== '') {
+            url += '&q=' + query;
+        }
         if (diet !== 'none') {
-            url += '&health=' + diet; // vegetarian
+            url += '&health=' + diet;
         }
         if (cuisine !== 'none') {
-            url += '&cuisineType=' + cuisine; // Asian
+            url += '&cuisineType=' + cuisine;
         }
-        url += '&mealType=' + mealType; // Dinner
-        url += '&time=' + time; // 10-20
+        url += '&mealType=' + mealType;
+        url += '&time=' + time;
         url += '&random=true';
         getRandomRecipes();
     }
