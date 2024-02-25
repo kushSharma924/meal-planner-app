@@ -7,6 +7,7 @@ const SearchBar = () => {
     const handleInputChange = (event) => {
         const value = event.target.value;
         setQuery(value);
+        console.log(value);
     };
 
     return (
