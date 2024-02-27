@@ -36,45 +36,10 @@ const Home = () => {
     const [time, setTime] = useState('10-20');
     const [query, setQuery] = useState('');
 
-    const handleQueryChanges = (q) => {
-        setQuery(q);
-        console.log(q);
-    }
-
-    useEffect(() => {
-        console.log(
-          'meal: ' + mealType + '\n' + 
-          'diet: ' + diet + '\n' + 
-          'ingredients: ' + ingredients + '\n' + 
-          'cuisine: ' + cuisine + '\n' + 
-          'time: ' + time
-        );
-    }, [time, mealType, diet, cuisine, ingredients])
-
-    const handleCuisineChanges = (c) => {
-        setCuisine(c);
-    }
-
-    const handleTimeChanges = (t) => {
-        setTime(t);
-    }
-
-    const handleIngredientsChanges = (ing) => {
-        setIngredients(ing);
-    }
-
-    const handleMealTypeChanges = (meal) => {
-        setMealType(meal);
-    };
-
-    const handleDietChanges = (diet) => {
-        setDiet(diet);
-    }
-
     return (
         <div className="home">
             <SearchBar 
-                onChange = {handleQueryChanges}
+                onChange = {setQuery}
             />
             <DropDown 
                 label = "What meal are you looking to eat?"
@@ -84,7 +49,7 @@ const Home = () => {
                     { label: 'Dinner', value: 'Dinner' },
                   ]}
                   value={mealType}
-                  onChange = {handleMealTypeChanges}
+                  onChange = {setMealType}
             />
             <br />
 
@@ -97,10 +62,9 @@ const Home = () => {
                     { label: 'Vegan', value: 'vegan' },
                   ]}
                   value={diet}
-                  onChange = {handleDietChanges}
+                  onChange = {setDiet}
             />
             <br />
-
 
             <DropDown 
                 label = "How many ingredients are you willing to work with?"
@@ -111,10 +75,9 @@ const Home = () => {
                     { label: '20+ ingredients', value: '20+' },
                   ]}
                   value={ingredients}
-                  onChange = {handleIngredientsChanges}
+                  onChange = {setIngredients}
             />
             <br />
-
 
             <DropDown 
                 label = "What cuisine would you prefer?"
@@ -125,7 +88,7 @@ const Home = () => {
                     { label: 'Mexican', value: 'Mexican' },
                   ]}
                   value={cuisine}
-                  onChange = {handleCuisineChanges}
+                  onChange = {setCuisine}
             />
             <br />
 
@@ -138,7 +101,7 @@ const Home = () => {
                     { label: 'Over 60 minutes', value: '60+' },
                   ]}
                   value={time}
-                  onChange = {handleTimeChanges}
+                  onChange = {setTime}
             />
             <button onClick = {handleClick}>Generate Recipes</button>
         </div>
