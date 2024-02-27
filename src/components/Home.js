@@ -17,20 +17,15 @@ const Home = () => {
         console.log(body);
     }
 
+    const buildURL = () => {
+        let queryString = query === '' ? '' : `&q=${query}`;
+        let dietString = diet === 'none' ? '' : `&health=${diet}`;
+        let cuisineString = cuisine === 'none' ? '' : `&cuisineType=${cuisine}`;
+        url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${ID}&app_key=${KEY}&ingr=${ingredients}${queryString}${dietString}${cuisineString}&mealType=${mealType}&time=${time}&random=true`;
+    }
+
     const handleClick = () => {
-        url += '&ingr=' + ingredients;
-        if (query !== '') {
-            url += '&q=' + query;
-        }
-        if (diet !== 'none') {
-            url += '&health=' + diet;
-        }
-        if (cuisine !== 'none') {
-            url += '&cuisineType=' + cuisine;
-        }
-        url += '&mealType=' + mealType;
-        url += '&time=' + time;
-        url += '&random=true';
+        buildURL();
         getRandomRecipes();
     }
 
