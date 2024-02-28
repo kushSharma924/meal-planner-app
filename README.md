@@ -30,23 +30,25 @@ This web application was built with React and deployed with AWS Amplify.
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-1. Clone the repo
-- ```git clone https://github.com/kushSharma924/meal-planner-app.git```
-2. Navigate to the directory
-- ```cd [folder_name]/meal-planner-app```
-3. Install node_modules
-- ```npm install```
-4. Install dotenv (a Node.js package to load environment variables)
-- ```npm i --save-dev dotenv```
-5. Create a .env file in the root package directly to store the environment variables
-- ```touch .env```
-6. Navigate to the .env file on your IDE and add the API Key
-- ```\\ at .env```  
+1. If you haven't already, install npm and NodeJS using homebrew  
+```// on m1 mac with a zsh terminal```  
+```brew install node```  
+2. Clone the repo  
+```git clone https://github.com/kushSharma924/meal-planner-app.git```
+3. Navigate to the directory  
+```cd [folder_name]/meal-planner-app```
+4. Install node_modules  
+```npm install```
+5. Install dotenv (a Node.js package to load environment variables)  
+```npm i --save-dev dotenv```
+6. Create a .env file in the root package directly to store the environment variables  
+```touch .env```
+7. Navigate to the .env file on a text editor of your choice and add the following two lines (ask one of the Repo owners for the app_id and app_key)  
+```// at .env```  
 ```REACT_APP_ID = [Insert App ID Here]```  
 ```REACT_APP_KEY = [Insert App Key Here]```
-7. Run project in localhost
-- ```npm run start```
+8. Run project in localhost  
+```npm run start```
 
 Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link](https://master.d3auyfi3h934ma.amplifyapp.com/)
 
@@ -55,8 +57,9 @@ Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link
 
 - [x] Added logo
 - [x] Added top bar
-- [ ] Add drop-down menu for food options
-- [ ] Implement API calls
+- [x] Add drop-down menu for food options
+- [x] Implement API calls
+- [ ] Show recipe cards
 
 
 <!-- CONTACT -->

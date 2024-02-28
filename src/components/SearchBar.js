@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({onChange}) => {
 
     const [query, setQuery] = useState('');
 
     const handleInputChange = (event) => {
         const value = event.target.value;
         setQuery(value);
+        if (onChange) {
+            onChange(value);
+        }
     };
 
     return (

@@ -17,19 +17,16 @@ const Home = () => {
         console.log(body);
     }
 
-    const handleClick = () => {
-        url += '&ingr=' + ingredients; // 10-20
-        if (diet !== 'none') {
-            url += '&health=' + diet; // vegetarian
-        }
-        if (cuisine !== 'none') {
-            url += '&cuisineType=' + cuisine; // Asian
-        }
-        url += '&mealType=' + mealType; // Dinner
-        url += '&time=' + time; // 10-20
-        url += '&random=true';
-        getRandomRecipes();
+    const buildURL = () => {
+        let queryString = query === '' ? '' : `&q=${query}`;
+        let dietString = diet === 'none' ? '' : `&health=${diet}`;
+        let cuisineString = cuisine === 'none' ? '' : `&cuisineType=${cuisine}`;
+        url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${ID}&app_key=${KEY}&ingr=${ingredients}${queryString}${dietString}${cuisineString}&mealType=${mealType}&time=${time}&random=true`;
+    }
 
+    const handleClick = () => {
+        buildURL();
+        getRandomRecipes();
     }
 
     const [mealType, setMealType] = useState('breakfast');
@@ -37,40 +34,13 @@ const Home = () => {
     const [ingredients, setIngredients] =  useState('0-5');
     const [cuisine, setCuisine] = useState('none');
     const [time, setTime] = useState('10-20');
-
-    useEffect(() => {
-        console.log(
-          'meal: ' + mealType + '\n' + 
-          'diet: ' + diet + '\n' + 
-          'ingredients: ' + ingredients + '\n' + 
-          'cuisine: ' + cuisine + '\n' + 
-          'time: ' + time
-        );
-    }, [time, mealType, diet, cuisine, ingredients])
-
-    const handleCuisineChanges = (c) => {
-        setCuisine(c);
-    }
-
-    const handleTimeChanges = (t) => {
-        setTime(t);
-    }
-
-    const handleIngredientsChanges = (ing) => {
-        setIngredients(ing);
-    }
-
-    const handleMealTypeChanges = (meal) => {
-        setMealType(meal);
-    };
-
-    const handleDietChanges = (diet) => {
-        setDiet(diet);
-    }
+    const [query, setQuery] = useState('');
 
     return (
         <div className="home">
-            <SearchBar />
+            <SearchBar 
+                onChange = {setQuery}
+            />
             <DropDown 
                 label = "What meal are you looking to eat?"
                 options={[
@@ -79,7 +49,7 @@ const Home = () => {
                     { label: 'Dinner', value: 'Dinner' },
                   ]}
                   value={mealType}
-                  onChange = {handleMealTypeChanges}
+                  onChange = {setMealType}
             />
             <br />
 
@@ -92,10 +62,9 @@ const Home = () => {
                     { label: 'Vegan', value: 'vegan' },
                   ]}
                   value={diet}
-                  onChange = {handleDietChanges}
+                  onChange = {setDiet}
             />
             <br />
-
 
             <DropDown 
                 label = "How many ingredients are you willing to work with?"
@@ -106,10 +75,9 @@ const Home = () => {
                     { label: '20+ ingredients', value: '20+' },
                   ]}
                   value={ingredients}
-                  onChange = {handleIngredientsChanges}
+                  onChange = {setIngredients}
             />
             <br />
-
 
             <DropDown 
                 label = "What cuisine would you prefer?"
@@ -120,7 +88,7 @@ const Home = () => {
                     { label: 'Mexican', value: 'Mexican' },
                   ]}
                   value={cuisine}
-                  onChange = {handleCuisineChanges}
+                  onChange = {setCuisine}
             />
             <br />
 
@@ -133,7 +101,7 @@ const Home = () => {
                     { label: 'Over 60 minutes', value: '60+' },
                   ]}
                   value={time}
-                  onChange = {handleTimeChanges}
+                  onChange = {setTime}
             />
             <button onClick = {handleClick}>Generate Recipes</button>
         </div>
