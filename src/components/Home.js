@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import DropDown from './DropDown';
 
@@ -11,10 +11,20 @@ const Home = () => {
     url += '&app_id=' + ID;
     url += '&app_key=' + KEY;
 
+    var recipes;
+    var recipeTitles;
+    var recipeImages;
+    var recipeIngredients;
+    var recipeLinks;
+
     const getRandomRecipes = async () => {
         const response = await fetch(url);
         const body = await response.json();
-        console.log(body);
+        recipes = body.hits.map(hit => hit.recipe);
+        recipeTitles = recipes.map(recipe => recipe.label);
+        recipeImages = recipes.map(recipe => recipe.images.REGULAR);
+        recipeIngredients = recipes.map(recipe => recipe.ingredientLines);
+        recipeLinks = recipes.map(recipe => recipe.shareAs);
     }
 
     const buildURL = () => {
