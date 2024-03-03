@@ -54,7 +54,6 @@ const Home = () => {
 
     const showCards = () => {
         setCards(true);
-        console.log("showing cards");
     }
 
     const handleClick = async () => {
@@ -139,7 +138,6 @@ const Home = () => {
             <button onClick = {handleClick}>Generate Recipes</button>
             {cards && (
                 <div className="card">
-                    <p>Showing Cards</p>
                     {recipeIndexes.map((index) => (
                         <Card
                             key={index}
