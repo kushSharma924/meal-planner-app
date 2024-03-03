@@ -27,6 +27,7 @@ body {
     display: flex;
     align-items: center; 
     justify-content: space-between;
+    border-radius: 16px;
 }
 
 .top-bar h1 {
@@ -44,9 +45,12 @@ body {
 
 .home {
     padding-top: 125px;
+    background-color: #007EA7;
+    padding-bottom: 50px;
 }
 
 .search-bar input {
+    border-radius: 8px;
     width: 70%;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -67,6 +71,7 @@ body {
 }
 
 .drop-down select {
+    border-radius: 8px;
     width: 20%;
     font-family: Helvetica, sans-serif;
     font-size: 18px;
@@ -99,19 +104,22 @@ body {
 
 .card {
     width: 99%;
-    height: 400px;
+    height: 300px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
     margin: 10px;
     display: flex; 
     justify-content: space-between;
+    border-radius: 8px;
 }
 
 .card-content {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
     font-family: Helvetica, sans-serif;
+    color: #00171F;
+    border-radius: 8px;
 }
 
 .card h3 {
@@ -119,4 +127,9 @@ body {
     font-family: Helvetica, sans-serif;
     font-size: 24px;
     color: #003459;
+}
+
+.card a {
+    color: #003459;
+    font-size: 18px;
 }
