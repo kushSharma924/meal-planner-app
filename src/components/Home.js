@@ -16,6 +16,8 @@ const Home = () => {
     var recipeImages;
     var recipeIngredients;
     var recipeLinks;
+    var recipeIndexes;
+    const [cards, setCards] = useState(false);
 
     const getRandomRecipes = async () => {
         const response = await fetch(url);
@@ -25,7 +27,18 @@ const Home = () => {
         recipeImages = recipes.map(recipe => recipe.images.REGULAR);
         recipeIngredients = recipes.map(recipe => recipe.ingredientLines);
         recipeLinks = recipes.map(recipe => recipe.shareAs);
+        recipeIndexes = generateIndexes(recipes);
     }
+
+    const generateIndexes = (recipes) => {
+        const randomNumbers = new Set();
+        while (randomNumbers.size < 3) {
+            const randomNumber = Math.floor(Math.random() * recipes.length);
+            randomNumbers.add(randomNumber);
+        }
+        return Array.from(randomNumbers);
+    }
+
 
     const buildURL = () => {
         let queryString = query === '' ? '' : `&q=${query}`;
@@ -34,9 +47,14 @@ const Home = () => {
         url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${ID}&app_key=${KEY}&ingr=${ingredients}${queryString}${dietString}${cuisineString}&mealType=${mealType}&time=${time}&random=true`;
     }
 
-    const handleClick = () => {
+    const showCards = () => {
+        setCards(true);
+    }
+
+    const handleClick = async () => {
         buildURL();
-        getRandomRecipes();
+        await getRandomRecipes();
+        showCards();
     }
 
     const [mealType, setMealType] = useState('breakfast');
@@ -114,6 +132,11 @@ const Home = () => {
                   onChange = {setTime}
             />
             <button onClick = {handleClick}>Generate Recipes</button>
+            {cards && (
+                <div>
+                    {/* Render your recipe cards or any other content here */}
+                    <p>Cards are being shown!</p>
+                </div>)}
         </div>
     );
 }
