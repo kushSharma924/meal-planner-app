@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import DropDown from './DropDown';
+import Card from './Card';
 
 const Home = () => {
 
@@ -11,29 +12,33 @@ const Home = () => {
     url += '&app_id=' + ID;
     url += '&app_key=' + KEY;
 
-    var recipes;
-    var recipeTitles;
-    var recipeImages;
-    var recipeIngredients;
-    var recipeLinks;
-    var recipeIndexes;
+    const [recipes, setRecipes] = useState([]);
+    const [recipeTitles, setRecipeTitles] = useState([]);
+    const [recipeImages, setRecipeImages] = useState([]);
+    const [recipeIngredients, setRecipeIngredients] = useState([]);
+    const [recipeLinks, setRecipeLinks] = useState([]);
+    const [recipeIndexes, setRecipeIndexes] = useState([]);
     const [cards, setCards] = useState(false);
 
     const getRandomRecipes = async () => {
         const response = await fetch(url);
         const body = await response.json();
-        recipes = body.hits.map(hit => hit.recipe);
-        recipeTitles = recipes.map(recipe => recipe.label);
-        recipeImages = recipes.map(recipe => recipe.images.REGULAR);
-        recipeIngredients = recipes.map(recipe => recipe.ingredientLines);
-        recipeLinks = recipes.map(recipe => recipe.shareAs);
-        recipeIndexes = generateIndexes(recipes);
+        const recipeData = body.hits.map(hit => hit.recipe);
+
+        setRecipes(recipeData);
+        setRecipeTitles(recipeData.map(recipe => recipe.label));
+        setRecipeImages(recipeData.map(recipe => recipe.images.REGULAR));
+        setRecipeIngredients(recipeData.map(recipe => recipe.ingredientLines));
+        setRecipeLinks(recipeData.map(recipe => recipe.shareAs));
+        setRecipeIndexes(generateIndexes(recipeData.length));
+        
+        showCards();
     }
 
-    const generateIndexes = (recipes) => {
+    const generateIndexes = (length) => {
         const randomNumbers = new Set();
         while (randomNumbers.size < 3) {
-            const randomNumber = Math.floor(Math.random() * recipes.length);
+            const randomNumber = Math.floor(Math.random() * length);
             randomNumbers.add(randomNumber);
         }
         return Array.from(randomNumbers);
@@ -49,12 +54,12 @@ const Home = () => {
 
     const showCards = () => {
         setCards(true);
+        console.log("showing cards");
     }
 
     const handleClick = async () => {
         buildURL();
         await getRandomRecipes();
-        showCards();
     }
 
     const [mealType, setMealType] = useState('breakfast');
@@ -133,10 +138,19 @@ const Home = () => {
             />
             <button onClick = {handleClick}>Generate Recipes</button>
             {cards && (
-                <div>
-                    {/* Render your recipe cards or any other content here */}
-                    <p>Cards are being shown!</p>
-                </div>)}
+                <div className="card">
+                    <p>Showing Cards</p>
+                    {recipeIndexes.map((index) => (
+                        <Card
+                            key={index}
+                            title={recipeTitles[index]}
+                            imageUrl={recipeImages[index]}
+                            ingredients={recipeIngredients[index]}
+                            link={recipeLinks[index]}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
