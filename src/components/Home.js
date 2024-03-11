@@ -55,9 +55,16 @@ const Home = () => {
         setTitle('Refresh Recipes');
     }
 
+    const [error, setError] = useState(false);
+
     const handleClick = async () => {
         buildURL();
-        await getRandomRecipes();
+        try {
+            await getRandomRecipes();
+        }
+        catch(err) {
+            setError(true)
+        }
     }
 
     const [mealType, setMealType] = useState('breakfast');
@@ -136,6 +143,7 @@ const Home = () => {
                   onChange = {setTime}
             />
             <button onClick = {handleClick}> {title} </button>
+            {error && <p>Invalid Credentials</p>}
             {cards && (
                 <div className="card">
                     {recipeIndexes.map((index) => (
