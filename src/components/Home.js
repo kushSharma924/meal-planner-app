@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import DropDown from './DropDown';
+import Card from './Card';
 
 const Home = () => {
 
@@ -11,11 +12,36 @@ const Home = () => {
     url += '&app_id=' + ID;
     url += '&app_key=' + KEY;
 
+    const [recipeTitles, setRecipeTitles] = useState([]);
+    const [recipeImages, setRecipeImages] = useState([]);
+    const [recipeIngredients, setRecipeIngredients] = useState([]);
+    const [recipeLinks, setRecipeLinks] = useState([]);
+    const [recipeIndexes, setRecipeIndexes] = useState([]);
+    const [cards, setCards] = useState(false);
+
     const getRandomRecipes = async () => {
         const response = await fetch(url);
         const body = await response.json();
-        console.log(body);
+        const recipeData = body.hits.map(hit => hit.recipe);
+
+        setRecipeTitles(recipeData.map(recipe => recipe.label));
+        setRecipeImages(recipeData.map(recipe => recipe.images.REGULAR));
+        setRecipeIngredients(recipeData.map(recipe => recipe.ingredientLines));
+        setRecipeLinks(recipeData.map(recipe => recipe.shareAs));
+        setRecipeIndexes(generateIndexes(recipeData.length));
+        
+        showCards();
     }
+
+    const generateIndexes = (length) => {
+        const randomNumbers = new Set();
+        while (randomNumbers.size < 3) {
+            const randomNumber = Math.floor(Math.random() * length);
+            randomNumbers.add(randomNumber);
+        }
+        return Array.from(randomNumbers);
+    }
+
 
     const buildURL = () => {
         let queryString = query === '' ? '' : `&q=${query}`;
@@ -24,9 +50,21 @@ const Home = () => {
         url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${ID}&app_key=${KEY}&ingr=${ingredients}${queryString}${dietString}${cuisineString}&mealType=${mealType}&time=${time}&random=true`;
     }
 
-    const handleClick = () => {
+    const showCards = () => {
+        setCards(true);
+        setTitle('Refresh Recipes');
+    }
+
+    const [error, setError] = useState(false);
+
+    const handleClick = async () => {
         buildURL();
-        getRandomRecipes();
+        try {
+            await getRandomRecipes();
+        }
+        catch(err) {
+            setError(true)
+        }
     }
 
     const [mealType, setMealType] = useState('breakfast');
@@ -35,6 +73,7 @@ const Home = () => {
     const [cuisine, setCuisine] = useState('none');
     const [time, setTime] = useState('10-20');
     const [query, setQuery] = useState('');
+    const [title, setTitle] = useState('Generate Recipes');
 
     return (
         <div className="home">
@@ -103,7 +142,21 @@ const Home = () => {
                   value={time}
                   onChange = {setTime}
             />
-            <button onClick = {handleClick}>Generate Recipes</button>
+            <button onClick = {handleClick}> {title} </button>
+            {error && <p>Invalid Credentials</p>}
+            {cards && (
+                <div className="card">
+                    {recipeIndexes.map((index) => (
+                        <Card
+                            key={index}
+                            title={recipeTitles[index]}
+                            imageUrl={recipeImages[index]}
+                            ingredients={recipeIngredients[index]}
+                            link={recipeLinks[index]}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
