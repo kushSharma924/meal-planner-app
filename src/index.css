@@ -27,7 +27,7 @@ body {
     display: flex;
     align-items: center; 
     justify-content: space-between;
-    border-radius: 16px;
+    border-radius: 0 0 16px 16px;
 }
 
 .top-bar h1 {
@@ -104,7 +104,7 @@ body {
 
 .card {
     width: 99%;
-    height: 300px;
+    height: 400px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;

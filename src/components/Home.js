@@ -12,7 +12,6 @@ const Home = () => {
     url += '&app_id=' + ID;
     url += '&app_key=' + KEY;
 
-    const [recipes, setRecipes] = useState([]);
     const [recipeTitles, setRecipeTitles] = useState([]);
     const [recipeImages, setRecipeImages] = useState([]);
     const [recipeIngredients, setRecipeIngredients] = useState([]);
@@ -25,7 +24,6 @@ const Home = () => {
         const body = await response.json();
         const recipeData = body.hits.map(hit => hit.recipe);
 
-        setRecipes(recipeData);
         setRecipeTitles(recipeData.map(recipe => recipe.label));
         setRecipeImages(recipeData.map(recipe => recipe.images.REGULAR));
         setRecipeIngredients(recipeData.map(recipe => recipe.ingredientLines));
