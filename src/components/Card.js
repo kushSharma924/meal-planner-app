@@ -2,8 +2,6 @@ import React from 'react';
 
 const Card = ({ title, imageUrl, ingredients, link }) => {
 
-    console.log(imageUrl);
-
     return (
         <div className="card" style={{backgroundImage: `url(${imageUrl.url})`}}>
             <div className="card-content">

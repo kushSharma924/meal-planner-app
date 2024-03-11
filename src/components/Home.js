@@ -54,6 +54,7 @@ const Home = () => {
 
     const showCards = () => {
         setCards(true);
+        setTitle('Refresh Recipes');
     }
 
     const handleClick = async () => {
@@ -67,6 +68,7 @@ const Home = () => {
     const [cuisine, setCuisine] = useState('none');
     const [time, setTime] = useState('10-20');
     const [query, setQuery] = useState('');
+    const [title, setTitle] = useState('Generate Recipes');
 
     return (
         <div className="home">
@@ -135,7 +137,7 @@ const Home = () => {
                   value={time}
                   onChange = {setTime}
             />
-            <button onClick = {handleClick}>Generate Recipes</button>
+            <button onClick = {handleClick}> {title} </button>
             {cards && (
                 <div className="card">
                     {recipeIndexes.map((index) => (
