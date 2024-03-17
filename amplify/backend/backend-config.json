@@ -1,1 +1,8 @@
-{}
+{
+  "storage": {
+    "mealplannerdb": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}
