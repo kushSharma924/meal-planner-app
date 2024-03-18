@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/recipe": {
+      "name": "/recipe",
+      "lambdaFunction": "mealplannerdbTrigger6b94216f",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

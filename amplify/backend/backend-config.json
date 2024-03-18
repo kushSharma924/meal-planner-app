@@ -1,0 +1,60 @@
+{
+  "api": {
+    "mealplannerapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "mealplannerdbTrigger6b94216f"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "mealplannerdbTrigger6b94216f": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "mealplannerdb"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_mealplannerdbTrigger6b94216f_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mealplannerdbTrigger6b94216f"
+        }
+      ]
+    },
+    "AMPLIFY_function_mealplannerdbTrigger6b94216f_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "mealplannerdbTrigger6b94216f"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "mealplannerdb": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

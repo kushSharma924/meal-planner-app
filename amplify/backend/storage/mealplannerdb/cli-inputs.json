@@ -1,0 +1,12 @@
+{
+  "resourceName": "mealplannerdb",
+  "tableName": "mealplannerdb",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "mealplannerdbTrigger6b94216f"
+  ]
+}

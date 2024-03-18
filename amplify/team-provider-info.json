@@ -1,0 +1,29 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify7e2243cdfb7b4-staging-41406-authRole",
+      "UnauthRoleArn": "arn:aws:iam::533267040809:role/amplify-amplify7e2243cdfb7b4-staging-41406-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::533267040809:role/amplify-amplify7e2243cdfb7b4-staging-41406-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify7e2243cdfb7b4-staging-41406-deployment",
+      "UnauthRoleName": "amplify-amplify7e2243cdfb7b4-staging-41406-unauthRole",
+      "StackName": "amplify-amplify7e2243cdfb7b4-staging-41406",
+      "StackId": "arn:aws:cloudformation:us-east-1:533267040809:stack/amplify-amplify7e2243cdfb7b4-staging-41406/f6266200-e4dd-11ee-ad40-12f5da57aab5",
+      "AmplifyAppId": "d3auyfi3h934ma"
+    },
+    "categories": {
+      "function": {
+        "mealplannerdbTrigger6b94216f": {
+          "deploymentBucketName": "amplify-amplify7e2243cdfb7b4-staging-41406-deployment",
+          "s3Key": "amplify-builds/mealplannerdbTrigger6b94216f-2f3437566e3741767933-build.zip"
+        }
+      },
+      "storage": {
+        "mealplannerdb": {}
+      },
+      "api": {
+        "mealplannerapi": {}
+      }
+    }
+  }
+}
