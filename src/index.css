@@ -38,8 +38,10 @@ body {
 
 }
 
-.top-bar img {
+.top-bar button {
     margin-left: 10px;
+    background-color: #003459;
+    border: none;
 }
 
 .home {
