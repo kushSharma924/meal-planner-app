@@ -28,6 +28,7 @@ const App = () => {
         const recipeData = body.hits.map(hit => hit.recipe);
 
         setBadInput(false);
+        setError(false);
         setRecipeTitles(recipeData.map(recipe => recipe.label));
         setRecipeImages(recipeData.map(recipe => recipe.images.REGULAR));
         setRecipeIngredients(recipeData.map(recipe => recipe.ingredientLines));
@@ -71,7 +72,7 @@ const App = () => {
             await getRandomRecipes();
         }
         catch(err) {
-            setError(true)
+            setError(true);
         }
     }
 
@@ -155,7 +156,7 @@ const App = () => {
                 <button onClick = {handleClick}> {title} </button>
             </div>
             {error && <p>Invalid Credentials</p>}
-            {badInput && <p>Please try changing your parameters!</p>}
+            {badInput && <p>No results found. Please try changing your parameters!</p>}
             {cards && !badInput && (
                 <div className="card">
                     {recipeIndexes.map((index) => (
