@@ -43,6 +43,9 @@ body {
 }
 
 .home {
+    color: #FFFFFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
     padding-top: 125px;
     padding-bottom: 50px;
 }

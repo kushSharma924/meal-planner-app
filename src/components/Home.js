@@ -18,12 +18,14 @@ const Home = () => {
     const [recipeLinks, setRecipeLinks] = useState([]);
     const [recipeIndexes, setRecipeIndexes] = useState([]);
     const [cards, setCards] = useState(false);
+    const [badInput, setBadInput] = useState(false);
 
     const getRandomRecipes = async () => {
         const response = await fetch(url);
         const body = await response.json();
         const recipeData = body.hits.map(hit => hit.recipe);
 
+        setBadInput(false);
         setRecipeTitles(recipeData.map(recipe => recipe.label));
         setRecipeImages(recipeData.map(recipe => recipe.images.REGULAR));
         setRecipeIngredients(recipeData.map(recipe => recipe.ingredientLines));
@@ -34,6 +36,10 @@ const Home = () => {
     }
 
     const generateIndexes = (length) => {
+        if (length < 3) {
+            setBadInput(true);
+            return;
+        }
         const randomNumbers = new Set();
         while (randomNumbers.size < 3) {
             const randomNumber = Math.floor(Math.random() * length);
@@ -69,7 +75,7 @@ const Home = () => {
 
     const [mealType, setMealType] = useState('breakfast');
     const [diet, setDiet] = useState('none');
-    const [ingredients, setIngredients] =  useState('0-5');
+    const [ingredients, setIngredients] =  useState('1-5');
     const [cuisine, setCuisine] = useState('none');
     const [time, setTime] = useState('10-20');
     const [query, setQuery] = useState('');
@@ -108,9 +114,9 @@ const Home = () => {
             <DropDown 
                 label = "How many ingredients are you willing to work with?"
                 options={[
-                    { label: '0-5 ingredients', value: '0-5' },
+                    { label: '1-5 ingredients', value: '1-5' },
                     { label: '5-10 ingredients', value: '5-10' },
-                    { label: '10-20 ingredients', value: '10-20' },
+                    { label: '10-15 ingredients', value: '10-15' },
                     { label: '20+ ingredients', value: '20+' },
                   ]}
                   value={ingredients}
@@ -134,17 +140,18 @@ const Home = () => {
             <DropDown 
                 label = "How much time are you willing to spend?"
                 options={[
+                    { label: '5-10 minutes', value: '5-10' },
                     { label: '10-20 minutes', value: '10-20' },
                     { label: '20-40 minutes', value: '20-40' },
-                    { label: '40-60 minutes', value: '40-60' },
-                    { label: 'Over 60 minutes', value: '60+' },
+                    { label: 'Over 40 minutes', value: '40+' },
                   ]}
                   value={time}
                   onChange = {setTime}
             />
             <button onClick = {handleClick}> {title} </button>
             {error && <p>Invalid Credentials</p>}
-            {cards && (
+            {badInput && <p>Please try changing your parameters!</p>}
+            {cards && !badInput && (
                 <div className="card">
                     {recipeIndexes.map((index) => (
                         <Card
