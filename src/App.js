@@ -147,7 +147,7 @@ const App = () => {
                     { label: '5-10 minutes', value: '5-10' },
                     { label: '10-20 minutes', value: '10-20' },
                     { label: '20-40 minutes', value: '20-40' },
-                    { label: 'Over 40 minutes', value: '40+' },
+                    { label: 'Over 40 minutes', value: '40%2B' },
                   ]}
                   value={time}
                   onChange = {setTime}
