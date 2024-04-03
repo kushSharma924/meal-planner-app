@@ -9,7 +9,6 @@ colors:
 */
 
 body {
-    background-color: #FFFFFF;
     margin: 0; /* Reset default margin */
 }
 
@@ -45,7 +44,6 @@ body {
 
 .home {
     padding-top: 125px;
-    background-color: #007EA7;
     padding-bottom: 50px;
 }
 
