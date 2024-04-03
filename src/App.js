@@ -105,7 +105,7 @@ const App = () => {
                 label = "Do you have any dietary restrictions?"
                 options={[
                     { label: 'None', value: 'none' },
-                    { label: 'Keto', value: 'keto' },
+                    { label: 'Keto', value: 'keto-friendly' },
                     { label: 'Vegetarian', value: 'vegetarian' },
                     { label: 'Vegan', value: 'vegan' },
                   ]}
