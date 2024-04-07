@@ -8,11 +8,6 @@ colors:
     - #007EA7 (cerulean)
 */
 
-body {
-    background-color: #FFFFFF;
-    margin: 0; /* Reset default margin */
-}
-
 .top-bar {
     background-color: #003459;
     margin: 0;
@@ -36,22 +31,30 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
-.top-bar img {
+.top-bar button {
     margin-left: 10px;
+    background-color: #003459;
+    border: none;
+    padding: 0px;
 }
 
-.home {
+.app {
+    color: #FFFFFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
     padding-top: 125px;
-    background-color: #007EA7;
     padding-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .search-bar input {
     border-radius: 8px;
-    width: 70%;
+    width: 800px;
     margin-top: 40px;
     margin-bottom: 40px;
     font-family: Helvetica, sans-serif;
@@ -72,7 +75,7 @@ body {
 
 .drop-down select {
     border-radius: 8px;
-    width: 20%;
+    width: 200px;
     font-family: Helvetica, sans-serif;
     font-size: 18px;
     margin-bottom: 5px;
@@ -86,19 +89,22 @@ body {
     cursor: pointer;
 }
 
-.home button {
+.app button {
     font-family: Helvetica, sans-serif;
     font-size: 24px;
     color: #FFFFFF;
     font-weight: bold;
     background-color: #003459;
     border: none;
-    padding: 15px;
-    margin-top: 20px;
     border-radius: 5px;
 }
 
-.home button:hover {
+.grButton button {
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.app button:hover {
     cursor: pointer;
 }
 
@@ -115,7 +121,7 @@ body {
 }
 
 .card-content {
-    padding: 20px;
+    padding: 50px;
     background-color: rgba(255, 255, 255, 0.7);
     font-family: Helvetica, sans-serif;
     color: #00171F;
