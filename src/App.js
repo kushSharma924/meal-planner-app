@@ -122,7 +122,7 @@ const App = () => {
                     { label: '1-5 ingredients', value: '1-5' },
                     { label: '5-10 ingredients', value: '5-10' },
                     { label: '10-15 ingredients', value: '10-15' },
-                    { label: '20+ ingredients', value: '20+' },
+                    { label: '15+ ingredients', value: '15%2B' },
                   ]}
                   value={ingredients}
                   onChange = {setIngredients}
