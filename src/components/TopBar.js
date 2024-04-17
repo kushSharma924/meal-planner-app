@@ -3,6 +3,7 @@ import logo from './images/logo.jpg';
 
 const TopBar = () => {
     const title = 'Flavor Finder';
+    const slogan = 'Find new recipes from any cuisine in seconds!'
 
     function refreshPage() {
         window.location.reload(false);
@@ -14,6 +15,7 @@ const TopBar = () => {
             <button><img src = {logo} width = {115} height = {115} alt = "logo" onClick={refreshPage}/></button>
             </div>
             <h1>{ title }</h1>
+            <p>{ slogan }</p>
         </div>
     );
 }

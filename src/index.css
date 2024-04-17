@@ -33,6 +33,14 @@ colors:
     transform: translateX(-50%);
 }
 
+.top-bar p {
+    color: #FFFFFF;
+    margin: 0;
+    position: absolute;
+    left: 38%;
+    transform: translateY(200%);
+}
+
 .top-bar button {
     margin-left: 10px;
     background-color: #003459;
