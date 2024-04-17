@@ -89,6 +89,7 @@ const App = () => {
             <TopBar />
             <SearchBar 
                 onChange = {setQuery}
+                onEnter = {handleClick}
             />
             <DropDown 
                 label = "What meal are you looking to eat?"
