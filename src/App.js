@@ -97,6 +97,7 @@ const App = () => {
                     { label: 'Breakfast', value: 'Breakfast' },
                     { label: 'Lunch', value: 'Lunch' },
                     { label: 'Dinner', value: 'Dinner' },
+                    { label: 'Snack', value: 'Snack' },
                   ]}
                   value={mealType}
                   onChange = {setMealType}
@@ -136,6 +137,12 @@ const App = () => {
                     { label: 'American', value: 'American' },
                     { label: 'Asian', value: 'Asian' },
                     { label: 'Mexican', value: 'Mexican' },
+                    { label: 'Chinese', value: 'Chinese' },
+                    { label: 'Indian', value: 'Indian' },
+                    { label: 'Italian', value: 'Italian' },
+                    { label: 'Japanese', value: 'Japanese' },
+                    { label: 'Middle Eastern', value: 'Middle Eastern' },
+                    { label: 'South American', value: 'South American' },
                   ]}
                   value={cuisine}
                   onChange = {setCuisine}
