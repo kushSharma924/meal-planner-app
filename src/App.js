@@ -89,6 +89,7 @@ const App = () => {
             <TopBar />
             <SearchBar 
                 onChange = {setQuery}
+                onEnter = {handleClick}
             />
             <DropDown 
                 label = "What meal are you looking to eat?"
@@ -96,6 +97,7 @@ const App = () => {
                     { label: 'Breakfast', value: 'Breakfast' },
                     { label: 'Lunch', value: 'Lunch' },
                     { label: 'Dinner', value: 'Dinner' },
+                    { label: 'Snack', value: 'Snack' },
                   ]}
                   value={mealType}
                   onChange = {setMealType}
@@ -121,7 +123,7 @@ const App = () => {
                     { label: '1-5 ingredients', value: '1-5' },
                     { label: '5-10 ingredients', value: '5-10' },
                     { label: '10-15 ingredients', value: '10-15' },
-                    { label: '20+ ingredients', value: '20+' },
+                    { label: '15+ ingredients', value: '15%2B' },
                   ]}
                   value={ingredients}
                   onChange = {setIngredients}
@@ -135,6 +137,12 @@ const App = () => {
                     { label: 'American', value: 'American' },
                     { label: 'Asian', value: 'Asian' },
                     { label: 'Mexican', value: 'Mexican' },
+                    { label: 'Chinese', value: 'Chinese' },
+                    { label: 'Indian', value: 'Indian' },
+                    { label: 'Italian', value: 'Italian' },
+                    { label: 'Japanese', value: 'Japanese' },
+                    { label: 'Middle Eastern', value: 'Middle Eastern' },
+                    { label: 'South American', value: 'South American' },
                   ]}
                   value={cuisine}
                   onChange = {setCuisine}

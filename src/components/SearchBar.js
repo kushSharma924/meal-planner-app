@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({onChange}) => {
+const SearchBar = ({onChange, onEnter}) => {
 
     const [query, setQuery] = useState('');
 
@@ -12,6 +12,13 @@ const SearchBar = ({onChange}) => {
         }
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            console.log('Enter key pressed');
+            onEnter();
+        }
+    };
+
     return (
         <div className="search-bar">
             <input
@@ -19,6 +26,7 @@ const SearchBar = ({onChange}) => {
                 placeholder="Enter some keywords to describe your meal"
                 value={query}
                 onChange={handleInputChange}
+                onKeyPress={handleKeyPress}
             />
         </div>
     );
