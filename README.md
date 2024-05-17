@@ -50,7 +50,8 @@ This web application was built with React and deployed with AWS Amplify.
 8. Run project in localhost  
 ```npm run start```  
   
-Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link](https://master.d3auyfi3h934ma.amplifyapp.com/)
+Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link](https://master.d3auyfi3h934ma.amplifyapp.com/)  
+![gif](https://github.com/kushSharma924/meal-planner-app/assets/106769448/20eb20c8-d71e-404d-8ab0-86028977e6d8)
 
 
 <!-- CONTACT -->
