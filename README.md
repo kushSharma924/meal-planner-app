@@ -48,18 +48,9 @@ This web application was built with React and deployed with AWS Amplify.
 ```REACT_APP_ID = [Insert App ID Here]```  
 ```REACT_APP_KEY = [Insert App Key Here]```
 8. Run project in localhost  
-```npm run start```
-
+```npm run start```  
+  
 Alternatively, view the deployed version through AWS Amplify: [AWS Deployed Link](https://master.d3auyfi3h934ma.amplifyapp.com/)
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Added logo
-- [x] Added top bar
-- [x] Add drop-down menu for food options
-- [x] Implement API calls
-- [ ] Show recipe cards
 
 
 <!-- CONTACT -->
